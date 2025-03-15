@@ -1,10 +1,11 @@
 from flask import Flask, request, jsonify
 import requests
 from bs4 import BeautifulSoup
+from flask_cors import CORS
 
 
 app = Flask(__name__)
-
+CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})  # need to change when deploying
 
 def get_lyrics(artist, song_title):
     artist = artist.lower().replace(" ", "-")
@@ -15,9 +16,8 @@ def get_lyrics(artist, song_title):
     
     if response.status_code == 200:
         soup = BeautifulSoup(response.content, 'html.parser')
-        
         lyrics_div = soup.find('p', id='songLyricsDiv')
-        
+
         if lyrics_div:
             return {"status": "success", "lyrics": lyrics_div.text.strip()}
         else:
@@ -40,5 +40,17 @@ def lyrics_endpoint():
 def health_check():
     return jsonify({"status": "healthy"})
 
+@app.after_request
+def after_request(response):
+  response.headers.set('Access-Control-Allow-Origin', '*')
+  response.headers.set('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+  response.headers.set('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+  return response 
+
+# to fix cors issue
+
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True)
+
+# debug 
