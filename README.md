@@ -74,7 +74,7 @@ A simple web application built with Flask (backend) and React (frontend) to fetc
 
 ### Screenshots
 
-placeholder
+![screenshot](https://github.com/mohnish-sharma/lyric-scraper-flaskapp/blob/main/screenshot.png)
 
 ## API Endpoints
 
