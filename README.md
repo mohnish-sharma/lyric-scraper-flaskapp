@@ -2,6 +2,10 @@
 
 A simple web application built with Flask (backend) and React (frontend) to fetch and display song lyrics using the [SongLyrics](https://www.songlyrics.com/) website.
 
+### Screenshots
+
+![screenshot](https://github.com/mohnish-sharma/lyric-scraper-flaskapp/blob/main/screenshot.png)
+
 ## Features
 
 - **Search Lyrics**: Enter the artist name and song title to fetch the lyrics.
@@ -71,10 +75,6 @@ A simple web application built with Flask (backend) and React (frontend) to fetc
 1. Open your browser and go to `http://localhost:3000`.
 2. Enter the artist name and song title in the input fields.
 3. Click the "Search Lyrics" button to fetch and display the lyrics.
-
-### Screenshots
-
-![screenshot](https://github.com/mohnish-sharma/lyric-scraper-flaskapp/blob/main/screenshot.png)
 
 ## API Endpoints
 
